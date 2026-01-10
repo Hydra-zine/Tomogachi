@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		71BE1B462F12E874006E5D2B /* GoogleMaps in Frameworks */ = {isa = PBXBuildFile; productRef = 71BE1B452F12E874006E5D2B /* GoogleMaps */; };
-		71BE1B4F2F1303F1006E5D2B /* .env in Resources */ = {isa = PBXBuildFile; fileRef = 71BE1B4E2F1303EA006E5D2B /* .env */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +31,6 @@
 		71BE1AF02F12C2EB006E5D2B /* Tomogachi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tomogachi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71BE1AFD2F12C2EC006E5D2B /* TomogachiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TomogachiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		71BE1B072F12C2EC006E5D2B /* TomogachiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TomogachiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		71BE1B4E2F1303EA006E5D2B /* .env */ = {isa = PBXFileReference; lastKnownFileType = text; path = .env; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -82,7 +80,6 @@
 		71BE1AE72F12C2EB006E5D2B = {
 			isa = PBXGroup;
 			children = (
-				71BE1B4E2F1303EA006E5D2B /* .env */,
 				71BE1AF22F12C2EB006E5D2B /* Tomogachi */,
 				71BE1B002F12C2EC006E5D2B /* TomogachiTests */,
 				71BE1B0A2F12C2EC006E5D2B /* TomogachiUITests */,
@@ -224,7 +221,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71BE1B4F2F1303F1006E5D2B /* .env in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
