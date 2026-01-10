@@ -13,7 +13,7 @@ import Foundation
 struct TomogachiApp: App {
     
     init() {
-        GMSServices.provideAPIKey(ProcessInfo.processInfo.environment["API_KEY"]!)
+        GMSServices.provideAPIKey("AIzaSyDJ6BdaR9yGsiIQLoGHE0BkzQwrOF92mSk")
     }
     var body: some Scene {
         WindowGroup {
