@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		71BE1B462F12E874006E5D2B /* GoogleMaps in Frameworks */ = {isa = PBXBuildFile; productRef = 71BE1B452F12E874006E5D2B /* GoogleMaps */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		71BE1AFE2F12C2EC006E5D2B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71BE1B462F12E874006E5D2B /* GoogleMaps in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +117,7 @@
 			);
 			name = Tomogachi;
 			packageProductDependencies = (
+				71BE1B452F12E874006E5D2B /* GoogleMaps */,
 			);
 			productName = Tomogachi;
 			productReference = 71BE1AF02F12C2EB006E5D2B /* Tomogachi.app */;
@@ -195,6 +201,9 @@
 			);
 			mainGroup = 71BE1AE72F12C2EB006E5D2B;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				71BE1B442F12E874006E5D2B /* XCRemoteSwiftPackageReference "ios-maps-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 71BE1AF12F12C2EB006E5D2B /* Products */;
 			projectDirPath = "";
@@ -558,6 +567,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		71BE1B442F12E874006E5D2B /* XCRemoteSwiftPackageReference "ios-maps-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googlemaps/ios-maps-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		71BE1B452F12E874006E5D2B /* GoogleMaps */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 71BE1B442F12E874006E5D2B /* XCRemoteSwiftPackageReference "ios-maps-sdk" */;
+			productName = GoogleMaps;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 71BE1AE82F12C2EB006E5D2B /* Project object */;
 }

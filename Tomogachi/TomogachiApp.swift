@@ -6,9 +6,14 @@
 //
 
 import SwiftUI
+import GoogleMaps
 
 @main
 struct TomogachiApp: App {
+    
+    init() {
+        GMSServices.provideAPIKey("AIzaSyDJ6BdaR9yGsiIQLoGHE0BkzQwrOF92mSk")
+    }
     var body: some Scene {
         WindowGroup {
             ContentView()
