@@ -9,11 +9,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var locationStore = LocationStore()
+
     var body: some View {
-        HomeView()
+        MapSetupView()
+            .environmentObject(locationStore)
     }
 }
 
 #Preview {
     ContentView()
 }
+
+

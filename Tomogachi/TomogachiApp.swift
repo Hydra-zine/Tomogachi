@@ -7,12 +7,13 @@
 
 import SwiftUI
 import GoogleMaps
+import Foundation
 
 @main
 struct TomogachiApp: App {
     
     init() {
-        GMSServices.provideAPIKey("AIzaSyDJ6BdaR9yGsiIQLoGHE0BkzQwrOF92mSk")
+        GMSServices.provideAPIKey(ProcessInfo.processInfo.environment["API_KEY"]!)
     }
     var body: some Scene {
         WindowGroup {
