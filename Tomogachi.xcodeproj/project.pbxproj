@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		71BE1B462F12E874006E5D2B /* GoogleMaps in Frameworks */ = {isa = PBXBuildFile; productRef = 71BE1B452F12E874006E5D2B /* GoogleMaps */; };
+		71BE1C122F1382CC006E5D2B /* GooglePlaces in Frameworks */ = {isa = PBXBuildFile; productRef = 71BE1C112F1382CC006E5D2B /* GooglePlaces */; };
+		71BE1C142F1382CC006E5D2B /* GooglePlacesSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 71BE1C132F1382CC006E5D2B /* GooglePlacesSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +36,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		71BE1B642F132173006E5D2B /* Exceptions for "Tomogachi" folder in "Tomogachi" target */ = {
+		71BE1C0D2F137E0F006E5D2B /* Exceptions for "Tomogachi" folder in "Tomogachi" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -47,7 +49,7 @@
 		71BE1AF22F12C2EB006E5D2B /* Tomogachi */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				71BE1B642F132173006E5D2B /* Exceptions for "Tomogachi" folder in "Tomogachi" target */,
+				71BE1C0D2F137E0F006E5D2B /* Exceptions for "Tomogachi" folder in "Tomogachi" target */,
 			);
 			path = Tomogachi;
 			sourceTree = "<group>";
@@ -70,6 +72,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				71BE1B462F12E874006E5D2B /* GoogleMaps in Frameworks */,
+				71BE1C122F1382CC006E5D2B /* GooglePlaces in Frameworks */,
+				71BE1C142F1382CC006E5D2B /* GooglePlacesSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +135,8 @@
 			name = Tomogachi;
 			packageProductDependencies = (
 				71BE1B452F12E874006E5D2B /* GoogleMaps */,
+				71BE1C112F1382CC006E5D2B /* GooglePlaces */,
+				71BE1C132F1382CC006E5D2B /* GooglePlacesSwift */,
 			);
 			productName = Tomogachi;
 			productReference = 71BE1AF02F12C2EB006E5D2B /* Tomogachi.app */;
@@ -216,6 +222,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				71BE1B442F12E874006E5D2B /* XCRemoteSwiftPackageReference "ios-maps-sdk" */,
+				71BE1C102F1382CC006E5D2B /* XCRemoteSwiftPackageReference "ios-places-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 71BE1AF12F12C2EB006E5D2B /* Products */;
@@ -592,6 +599,14 @@
 				minimumVersion = 10.7.0;
 			};
 		};
+		71BE1C102F1382CC006E5D2B /* XCRemoteSwiftPackageReference "ios-places-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googlemaps/ios-places-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.6.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -599,6 +614,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 71BE1B442F12E874006E5D2B /* XCRemoteSwiftPackageReference "ios-maps-sdk" */;
 			productName = GoogleMaps;
+		};
+		71BE1C112F1382CC006E5D2B /* GooglePlaces */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 71BE1C102F1382CC006E5D2B /* XCRemoteSwiftPackageReference "ios-places-sdk" */;
+			productName = GooglePlaces;
+		};
+		71BE1C132F1382CC006E5D2B /* GooglePlacesSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 71BE1C102F1382CC006E5D2B /* XCRemoteSwiftPackageReference "ios-places-sdk" */;
+			productName = GooglePlacesSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -11,6 +11,8 @@ import GoogleMaps
 struct MapView: UIViewRepresentable {
     @ObservedObject var store: LocationStore
     @Binding var selectedType: LocationType?
+    @Binding var searchCoordinate: CLLocationCoordinate2D?
+
 
     func makeUIView(context: Context) -> GMSMapView {
         let camera = GMSCameraPosition(
@@ -34,17 +36,18 @@ struct MapView: UIViewRepresentable {
         case .gym: return .red
         }
     }
+    
+    
 
     func updateUIView(_ mapView: GMSMapView, context: Context) {
         mapView.clear()
 
+        // Saved locations
         for location in store.locations {
-            // Marker
             let marker = GMSMarker(position: location.coordinate)
             marker.icon = markerIcon(for: location.type)
             marker.map = mapView
 
-            // Radius Circle
             let circle = GMSCircle(
                 position: location.coordinate,
                 radius: location.radius
@@ -54,7 +57,24 @@ struct MapView: UIViewRepresentable {
             circle.strokeWidth = 1
             circle.map = mapView
         }
+
+        // Temporary search pin
+        if let coord = searchCoordinate {
+            let marker = GMSMarker(position: coord)
+            marker.icon = GMSMarker.markerImage(with: .purple)
+            marker.title = "Search Result"
+            marker.map = mapView
+
+            let camera = GMSCameraPosition(
+                latitude: coord.latitude,
+                longitude: coord.longitude,
+                zoom: 15
+            )
+
+            mapView.animate(to: camera)
+        }
     }
+
 
 
     func makeCoordinator() -> Coordinator {

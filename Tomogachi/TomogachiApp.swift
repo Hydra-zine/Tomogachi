@@ -7,19 +7,18 @@
 
 import SwiftUI
 import GoogleMaps
-import Foundation
+import GooglePlaces
 
 @main
 struct TomogachiApp: App {
-    
+
     init() {
-        let apiKey = Bundle.main.object(
+        let key = Bundle.main.object(
             forInfoDictionaryKey: "GOOGLE_MAPS_API_KEY"
-        ) as? String
+        ) as! String
 
-        print("Google Maps API Key:", apiKey ?? "NOT FOUND")
-
-        GMSServices.provideAPIKey(apiKey ?? "")
+        GMSServices.provideAPIKey(key)
+        GMSPlacesClient.provideAPIKey(key)
     }
 
     var body: some Scene {

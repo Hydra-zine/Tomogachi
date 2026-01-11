@@ -7,6 +7,7 @@
 
 
 import Foundation
+import CoreLocation
 
 @MainActor
 class LocationStore: ObservableObject {
@@ -30,6 +31,21 @@ class LocationStore: ObservableObject {
         guard let index = locations.firstIndex(where: { $0.id == location.id }) else { return }
         locations[index] = location
     }
+
+    func add(
+        coordinate: CLLocationCoordinate2D,
+        type: LocationType,
+        radius: CLLocationDistance = 100
+    ) {
+        let location = SavedLocation(
+            coordinate: coordinate,
+            type: type,
+            radius: radius
+        )
+
+        locations.append(location)
+    }
+
 
     private func save() {
         guard let data = try? JSONEncoder().encode(locations) else { return }
