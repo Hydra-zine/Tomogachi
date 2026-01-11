@@ -24,7 +24,7 @@ struct ContentView: View {
                 .padding(.horizontal)
 
                 MapView(store: store, selectedType: $selectedType)
-                    .frame(height: 300)
+                    .frame(height: 400)
 
                 LocationListView(store: store)
             }

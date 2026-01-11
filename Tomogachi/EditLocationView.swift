@@ -28,7 +28,12 @@ struct EditLocationView: View {
                 store.update(location)
                 dismiss()
             }
-            .buttonStyle(.borderedProminent)
+            
+            Button("Delete Location", role: .destructive) {
+                store.delete(location)
+                dismiss()
+            }
+
         }
         .navigationTitle("Edit Location")
     }

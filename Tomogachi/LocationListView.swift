@@ -27,10 +27,11 @@ struct LocationListView: View {
                 }
             }
             .onDelete { indexSet in
-                indexSet
-                    .map { store.locations[$0] }
-                    .forEach(store.delete)
+                indexSet.map { store.locations[$0] }.forEach(store.delete)
             }
+        }
+        .sheet(item: $selected) {
+            EditLocationView(store: store, location: $0)
         }
     }
 }
