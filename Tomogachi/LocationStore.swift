@@ -7,10 +7,36 @@
 
 
 import Foundation
-import CoreLocation
 
-final class LocationStore: ObservableObject {
-    @Published var school: CLLocationCoordinate2D?
-    @Published var work: CLLocationCoordinate2D?
-    @Published var home: CLLocationCoordinate2D?
+@MainActor
+class LocationStore: ObservableObject {
+    @Published var locations: [SavedLocation] = [] {
+        didSet {
+            save()
+        }
+    }
+
+    private let key = "saved_locations"
+
+    init() {
+        load()
+    }
+
+    func add(_ location: SavedLocation) {
+        locations.append(location)
+    }
+
+    private func save() {
+        guard let data = try? JSONEncoder().encode(locations) else { return }
+        UserDefaults.standard.set(data, forKey: key)
+    }
+
+    private func load() {
+        guard
+            let data = UserDefaults.standard.data(forKey: key),
+            let decoded = try? JSONDecoder().decode([SavedLocation].self, from: data)
+        else { return }
+
+        locations = decoded
+    }
 }
