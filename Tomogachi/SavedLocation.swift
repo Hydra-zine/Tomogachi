@@ -37,3 +37,16 @@ struct SavedLocation: Identifiable, Codable {
         CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 }
+
+extension SavedLocation {
+    func toAPILocation() -> APILocation {
+        APILocation(
+            id: id.uuidString,
+            type: type.rawValue,
+            lat: coordinate.latitude,
+            lng: coordinate.longitude,
+            radius: radius
+        )
+    }
+}
+
