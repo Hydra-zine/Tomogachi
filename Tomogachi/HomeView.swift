@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         VStack (spacing: 20){
-            Text("Tomogachi").font(.largeTitle).fontWeight(.bold)
+            Text("TamaGO").font(.largeTitle).fontWeight(.bold)
             
             HStack(spacing:50){
                 Button(action: {
