@@ -13,17 +13,22 @@ struct ContentView: View {
     @State private var selectedType: LocationType? = .home
 
     var body: some View {
-        VStack {
-            Picker("Location Type", selection: $selectedType) {
-                ForEach(LocationType.allCases, id: \.self) {
-                    Text($0.rawValue.capitalized).tag(Optional($0))
+        NavigationStack {
+            VStack {
+                Picker("Type", selection: $selectedType) {
+                    ForEach(LocationType.allCases, id: \.self) {
+                        Text($0.rawValue.capitalized).tag(Optional($0))
+                    }
                 }
-            }
-            .pickerStyle(.segmented)
-            .padding()
+                .pickerStyle(.segmented)
+                .padding(.horizontal)
 
-            MapView(store: store, selectedType: $selectedType)
-                .edgesIgnoringSafeArea(.all)
+                MapView(store: store, selectedType: $selectedType)
+                    .frame(height: 300)
+
+                LocationListView(store: store)
+            }
+            .navigationTitle("Tomogachi Destinations")
         }
     }
 }

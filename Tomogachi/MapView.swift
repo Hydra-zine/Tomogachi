@@ -26,16 +26,36 @@ struct MapView: UIViewRepresentable {
         mapView.delegate = context.coordinator
         return mapView
     }
+    
+    func circleColor(for type: LocationType) -> UIColor {
+        switch type {
+        case .home: return .blue
+        case .school: return .green
+        case .gym: return .red
+        }
+    }
 
     func updateUIView(_ mapView: GMSMapView, context: Context) {
         mapView.clear()
 
         for location in store.locations {
+            // Marker
             let marker = GMSMarker(position: location.coordinate)
             marker.icon = markerIcon(for: location.type)
             marker.map = mapView
+
+            // Radius Circle
+            let circle = GMSCircle(
+                position: location.coordinate,
+                radius: location.radius
+            )
+            circle.fillColor = circleColor(for: location.type).withAlphaComponent(0.15)
+            circle.strokeColor = circleColor(for: location.type)
+            circle.strokeWidth = 1
+            circle.map = mapView
         }
     }
+
 
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -49,7 +69,7 @@ struct MapView: UIViewRepresentable {
             color = .blue
         case .school:
             color = .green
-        case .work:
+        case .gym:
             color = .red
         }
 
