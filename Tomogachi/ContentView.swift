@@ -36,6 +36,11 @@ struct ContentView: View {
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
                 }
+            AdafruitTestView()
+                .tabItem {
+                    Label("Adafruit Test", systemImage: "square.and.arrow.up")
+                }
+            
 
             LocationsView(store: locationStore)
                 .tabItem {
