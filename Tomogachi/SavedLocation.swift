@@ -14,29 +14,27 @@ enum LocationType: String, Codable, CaseIterable {
     case gym
 }
 
-struct SavedLocation: Identifiable, Codable {
+import CoreLocation
+
+struct SavedLocation: Identifiable {
     let id: UUID
-    var latitude: Double
-    var longitude: Double
-    var type: LocationType
-    var radius: Double   // meters
+    let coordinate: CLLocationCoordinate2D
+    let radius: CLLocationDistance
+    let type: LocationType
 
     init(
+        id: UUID = UUID(),
         coordinate: CLLocationCoordinate2D,
-        type: LocationType,
-        radius: Double = 100
+        radius: CLLocationDistance = 100,
+        type: LocationType
     ) {
-        self.id = UUID()
-        self.latitude = coordinate.latitude
-        self.longitude = coordinate.longitude
-        self.type = type
+        self.id = id
+        self.coordinate = coordinate
         self.radius = radius
-    }
-
-    var coordinate: CLLocationCoordinate2D {
-        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        self.type = type
     }
 }
+
 
 extension SavedLocation {
     func toAPILocation() -> APILocation {

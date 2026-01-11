@@ -19,7 +19,7 @@ final class SleepManager: ObservableObject {
     @Published var remainingTime: TimeInterval = 0
 
     let bedtimeHour = 23   // 11 PM
-    let wakeHour = 8       // 7 AM
+    let wakeHour = 7      // 7 AM
 
     private var timerCancellable: AnyCancellable?
 

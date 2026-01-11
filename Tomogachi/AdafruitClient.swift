@@ -17,7 +17,7 @@ final class AdafruitClient {
     private init() {}
 
     private let username = "rsooknanan"
-    private let apiKey = "aio_aFGT59oGHU3BhWzI0IJjUJTqUOgn"
+    private let apiKey = "API_KEY"
     private let feed = "espcommunicator"
 
     func sendValue(

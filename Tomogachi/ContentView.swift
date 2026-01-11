@@ -19,6 +19,16 @@ struct ContentView: View {
     @StateObject private var sleepManager = SleepManager()
     @State private var showSleepScreen = false
     @Environment(\.scenePhase) private var scenePhase
+    
+    @StateObject private var userLocationManager: UserLocationManager
+
+    init() {
+        let store = LocationStore()
+        _locationStore = StateObject(wrappedValue: store)
+        _userLocationManager = StateObject(
+            wrappedValue: UserLocationManager(store: store)
+        )
+    }
 
     var body: some View {
         TabView {
