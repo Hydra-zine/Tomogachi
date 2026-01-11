@@ -8,6 +8,10 @@
 
 import Foundation
 
+struct AdafruitResponse: Codable {
+    let value: String
+}
+
 final class AdafruitClient {
     static let shared = AdafruitClient()
     private init() {}
@@ -54,5 +58,21 @@ final class AdafruitClient {
             value: json
         )
     }
+    func fetchLatest(feed: String) async throws -> String {
+        let url = URL(
+            string: "https://io.adafruit.com/api/v2/rsooknanan/feeds/espcommunicator/data"
+        )!
+
+        var request = URLRequest(url: url)
+        request.setValue(apiKey, forHTTPHeaderField: "X-AIO-Key")
+
+        let (data, _) = try await URLSession.shared.data(for: request)
+        let decoded = try JSONDecoder().decode(AdafruitResponse.self, from: data)
+        return decoded.value
+    }
 
 }
+
+
+
+
